@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    application: spilo
+    team: acid
+    version: acid-minimal-cluster
+  name: postgres-svc
+  namespace: default
+spec:
+  selector:
+    spilo-role: master
+    statefulset.kubernetes.io/pod-name: acid-minimal-cluster-0
+  ports:
+  - name: postgresql
+    port: 5432
+    protocol: TCP
+    targetPort: 5432
+  type: ClusterIP
+
