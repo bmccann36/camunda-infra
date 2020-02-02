@@ -26,7 +26,7 @@ spec:
           - name: DB_DRIVER
             value: "org.postgresql.Driver"
           - name: DB_URL
-            value: "jdbc:postgresql://postgres-svc:5432/foo"
+            value: "jdbc:postgresql://postgres-svc:5432/camunda"
           - name: DB_USERNAME
             value: "postgres"
           - name: DB_PASSWORD
@@ -34,10 +34,3 @@ spec:
           - name: PGSSLMODE
             value: require
 
-
-
-
-            # - DB_DRIVER=org.postgresql.Driver
-            # - DB_URL=jdbc:postgresql://acid-minimal-cluster-0:5432/foo
-            # - DB_USERNAME=postgres
-            # - DB_PASSWORD=jP29jplWRIB0dQiKkB0HAgo3rK869mG57rDaPrwxtOhy5gBn1V0pW6FyFpFqJLSo

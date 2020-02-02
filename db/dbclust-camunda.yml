@@ -1,0 +1,23 @@
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: vehres-dbclust-camunda
+  namespace: default
+spec:
+  teamId: "vehres"
+  volume:
+    size: 1Gi
+    storageClass: aws-storage # ! had to set this up first
+  numberOfInstances: 2
+  users:
+    camunda-app:  # database owner
+    - superuser
+    - createdb
+    foo_user: []  # role for application foo
+  databases:
+    camunda: camunda-app  # dbname: owner
+  postgresql:
+    version: "11"
+  patroni: # ! need to override here otherwise camunda can't connect
+    pg_hba:
+    - hostnossl all all all trust
